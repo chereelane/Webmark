@@ -1,6 +1,6 @@
 package com.zell.webmark.categories;
 
-/**
+/*
  * This class contains user information
  */
 public class User {
@@ -13,7 +13,7 @@ public class User {
     private int gender;
     private String userType;
 
-    /**
+    /*
      * Getters and Setters
      * @return
      */
@@ -45,6 +45,19 @@ public class User {
     public String getUserType() {return userType;}
 
     public void setUserType(String userType) {this.userType = userType;}
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", userType='" + userType + '\'' +
+                '}';
+    }
 }
 
 

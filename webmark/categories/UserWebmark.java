@@ -1,4 +1,8 @@
 package com.zell.webmark.categories;
+/*
+   The purpose of this class is to retrieve user and bookmark information
+   Uses getter and setter methods and retrieves the information User and Webmark classes
+ */
 
 // Maintains the relationship between  a user and a webmark.
 public class UserWebmark {

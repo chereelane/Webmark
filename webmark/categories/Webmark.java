@@ -1,6 +1,6 @@
 package com.zell.webmark.categories;
 
-public class Webmark {
+public abstract class Webmark {
     private long id;
     private String title;
     private String profileURL;
@@ -28,5 +28,7 @@ public class Webmark {
     public void setProfileURL(String profileURL) {
         this.profileURL = profileURL;
     }
+
+    public abstract boolean isKidFriendlyEligible();
 
 }

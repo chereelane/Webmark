@@ -1,12 +1,13 @@
 package com.zell.webmark.managers;
 // Manages webmark information
 
-import com.zell.webmark.categories.Book;
-import com.zell.webmark.categories.Movie;
-import com.zell.webmark.categories.WebLink;
+import com.zell.webmark.categories.*;
+import com.zell.webmark.dao.WebmarkDao;
 
 public class WebmarkManager {
     private static WebmarkManager instance = new WebmarkManager();
+    private static WebmarkDao dao = new WebmarkDao(); //Creates a webmark dao instace
+
     private WebmarkManager() {}
 
     public static WebmarkManager getInstance() {
@@ -17,7 +18,6 @@ public class WebmarkManager {
      * Creates an movie instance
      * @param id
      * @param title
-     * @param profileURL
      * @param releaseYear
      * @param cast
      * @param directors
@@ -25,8 +25,8 @@ public class WebmarkManager {
      * @param imdbRating
      * @return
      */
-    public Movie createMovie (long id, String title, String profileURL, int releaseYear,
-                              String [] cast, String [] directors, String genre, double imdbRating) {
+    public Movie createMovie(long id, String title, String profileURL, int releaseYear,
+                             String[] cast, String[] directors, String genre, double imdbRating) {
         Movie movie = new Movie();
         movie.setId(id);
         movie.setTitle(title);
@@ -82,5 +82,18 @@ public class WebmarkManager {
         weblink.setHost(host);
 
         return weblink;
+    }
+
+    public Webmark[][] getWebmarks(){
+        return dao.getWebmarks();
+    }
+
+    public void saveUserWebmark(User user, Webmark webmark){
+        UserWebmark userWebmark = new UserWebmark();
+        userWebmark.setUser(user);
+        userWebmark.setWebmark(webmark);
+
+        dao.saveUserWebmark(userWebmark);
+
     }
 }

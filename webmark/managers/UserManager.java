@@ -1,12 +1,15 @@
 package com.zell.webmark.managers;
 
 import com.zell.webmark.categories.User;
+import com.zell.webmark.dao.UserDao;
 
-/**
+/*
  * Manages User information
  */
 public class UserManager {
     private static UserManager instance = new UserManager();
+    private static UserDao dao = new UserDao(); // Creates an instance of the user dao
+
     private UserManager(){ }
 
     public  static UserManager getInstance(){
@@ -27,5 +30,9 @@ public class UserManager {
 
         return user;
 
+    }
+
+    public User[] getUsers(){
+        return dao.getUsers();
     }
 }

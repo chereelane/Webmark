@@ -1,7 +1,10 @@
 package com.zell.webmark.categories;
-/**
+
+import java.util.Arrays;
+
+/*
  * This class describes properties of the Books found online
- */
+ **/
 public class Book extends Webmark{
     private int publication;
     private String publisher;
@@ -50,5 +53,21 @@ public class Book extends Webmark{
 
     public void setAmazonRating(double amazonRating) {
         this.amazonRating = amazonRating;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "publication=" + publication +
+                ", publisher='" + publisher + '\'' +
+                ", authors=" + Arrays.toString(authors) +
+                ", genre='" + genre + '\'' +
+                ", amazonRating=" + amazonRating +
+                '}';
+    }
+
+    @Override
+    public boolean isKidFriendlyEligible() {
+        return false;
     }
 }
